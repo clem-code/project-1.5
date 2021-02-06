@@ -1,0 +1,94 @@
+
+.container{
+  // background-image: url('http://media.vam.ac.uk/media/thira/collection_images/2017KJ/2017KJ5011.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 800px;
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.script{
+  color: 	rgb(7,43,135);
+  text-align: left;
+  padding: 2px;
+  margin: 2px;
+  font-family: 'Eczar', serif;
+  font-size: 20px;
+  font-weight: bolder;
+  background-color: mistyrose;
+  opacity: 0.8;
+}
+.superContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  background-color: mintcream;
+}
+.buttons{
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  align-items: flex-start;
+  
+}
+.buttonBox{
+  display: flex;
+  flex-direction: column;
+  margin: 3px;
+  padding: 2px;
+  
+}
+
+.modal {
+  width: 500px;
+  height: 220px;
+  position: absolute;
+  margin: 0 auto;
+  background: mintcream;
+  text-align: center;
+  padding: 10px;
+  margin: 2px;
+  border-radius: 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: lighter;
+  font-size: 14px;
+  border: dodgerblue solid 6px;
+  z-index: 1;
+}
+#hidden{
+  display: none;
+}
+#blur{
+  filter: blur(2.5px);
+}
+button{
+  font-family: 'Montserrat', sans-serif;
+  width: 180px;
+  margin: 2px;
+  height: 25px;
+}
+select{
+  font-family: 'Montserrat', sans-serif;
+  width: 180px;
+  margin: 2px;
+  height: 25px;
+}
+input{
+  font-family: 'Montserrat', sans-serif;
+  width: 220px;
+  margin: 2px;
+  height: 20px;
+}
+#about{
+  width: 228px;
+}
+a{
+  text-decoration: none; 
+  color: dodgerblue;
+}
