@@ -13,7 +13,7 @@ const App = () => {
   const [background, updateBackground] = useState('http://media.vam.ac.uk/media/thira/collection_images/2008BT/2008BT5843.jpg')
   const [script, updateScript] = useState(255, 215, 0)
   const [scriptBack, updateScriptBack] = useState(220, 20, 60)
-  const [styleSelector, updateStyleSelector] = useState('shakespeare')
+  const [styleSelector, updateStyleSelector] = useState('dickinson')
   const [modal, modalUpdate] = useState('false')
   const [search, updateSearch] = useState('lilies')
   const [linecount, updateLinecount] = useState('3')
@@ -23,7 +23,8 @@ const App = () => {
     console.log(' i have been fetched', search)
     const searchTerm = search.replaceAll(' ', '-')
     console.log(searchTerm, 'this is search term')
-    fetch(`https://cors-anywhere.herokuapp.com/http://www.vam.ac.uk/api/json/museumobject/search?q=${searchTerm}&images=1&limit=45`)
+    fetch(`http://www.vam.ac.uk/api/json/museumobject/search?q=${searchTerm}&images=1&limit=45`)
+      // https://cors-anywhere.herokuapp.com/
       .then(resp => resp.json())
       .then(data => {
         console.log(data.records)
@@ -33,6 +34,7 @@ const App = () => {
         const imager = data.records[Math.floor(Math.random() * 45)].fields.primary_image_id
         const imagerTag = imager.slice(0, 6)
         updateBackground(`http://media.vam.ac.uk/media/thira/collection_images/${imagerTag}/${imager}.jpg`)
+
       })
     // 
   }
