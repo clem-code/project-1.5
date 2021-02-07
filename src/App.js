@@ -23,7 +23,7 @@ const App = () => {
     console.log(' i have been fetched', search)
     const searchTerm = search.replaceAll(' ', '-')
     console.log(searchTerm, 'this is search term')
-    fetch(`http://www.vam.ac.uk/api/json/museumobject/search?q=${searchTerm}&images=1&limit=45`)
+    fetch(`https://www.vam.ac.uk/api/json/museumobject/search?q=${searchTerm}&images=1&limit=45`)
       // https://cors-anywhere.herokuapp.com/
       .then(resp => resp.json())
       .then(data => {
