@@ -122,6 +122,7 @@ const App = () => {
         poemArray.push(randomLine)
       } else { index-- }
       if (index === poetLine.length - 1) {
+        console.log('this is the last line', randomLine, randomLine[randomLine.length - 1])
         if (randomLine[randomLine.length - 1] !== '.' || randomLine[randomLine.length - 1] !== '!' || randomLine[randomLine.length - 1] !== '?') {
           randomLine + '.'
         } else if (randomLine[randomLine.length - 1] === ',') {
