@@ -20,17 +20,11 @@ const App = () => {
 
 
   function fetchCanvas(search) {
-    console.log(' i have been fetched', search)
     const searchTerm = search.replaceAll(' ', '-')
-    console.log(searchTerm, 'this is search term')
     fetch(`https://www.vam.ac.uk/api/json/museumobject/search?q=${searchTerm}&images=1&limit=45`)
       // https://cors-anywhere.herokuapp.com/
       .then(resp => resp.json())
       .then(data => {
-        console.log(data.records)
-        console.log('hello')
-        console.log(data.records[Math.floor(Math.random() * 45)])
-        console.log(data.records[Math.floor(Math.random() * 45)].fields.primary_image_id)
         const imager = data.records[Math.floor(Math.random() * 45)].fields.primary_image_id
         const imagerTag = imager.slice(0, 6)
         updateBackground(`http://media.vam.ac.uk/media/thira/collection_images/${imagerTag}/${imager}.jpg`)
@@ -102,34 +96,29 @@ const App = () => {
   }, [])
 
 
+
   function randomPoemGen() {
     const poemArray = []
     const poetLine = linecount
     const poetChoice = styleSelector
-    console.log('this is poetline', poetLine)
-    console.log('this is poetchoice', poetChoice)
     const randomPoem = poetChoice[Math.floor(Math.random() * poetChoice.length)]
-    console.log('this is randomPoem', randomPoem)
     const randomLine = randomPoem[Math.floor(Math.random() * randomPoem.length)]
-    console.log('this is randomLine', randomLine)
-
 
     for (let index = 0; index < poetLine; index++) {
       const randomPoem = poetChoice[Math.floor(Math.random() * poetChoice.length)]
       let randomLine = randomPoem[Math.floor(Math.random() * randomPoem.length)]
       randomLine = randomLine.charAt(0).toUpperCase() + randomLine.slice(1)
       if (randomLine.length > 20) {
-        poemArray.push(randomLine)
-      } else { index-- }
-      if (index === poetLine.length - 1) {
-        console.log('this is the last line', randomLine, randomLine[randomLine.length - 1])
-        if (randomLine[randomLine.length - 1] !== '.' || randomLine[randomLine.length - 1] !== '!' || randomLine[randomLine.length - 1] !== '?') {
-          randomLine + '.'
-        } else if (randomLine[randomLine.length - 1] === ',') {
-          randomLine[randomLine.length - 1] === '.'
-        }
-      }
+        if (index === poetLine - 1) {
+          if (randomLine.trim().split('')[randomLine.length - 1] === ',' || randomLine.trim().split('')[randomLine.length - 1] === ';' || randomLine.trim().split('')[randomLine.length - 1] === ':') {
+            randomLine = randomLine.slice(0, -1) + '.'
+            poemArray.push(randomLine)
+          } else { poemArray.push(randomLine) }
 
+        } else {
+          poemArray.push(randomLine)
+        }
+      } else { index-- }
     }
     console.log(poemArray)
     updatePoemLines(poemArray)
@@ -148,7 +137,6 @@ const App = () => {
   }
   //update poet input
   function poetSelector(input) {
-    console.log(input)
     if (input === 'Shakespeare') {
       updateStyleSelector(shakespeare)
     } else if (input === 'Wilde') {
@@ -160,13 +148,12 @@ const App = () => {
     } else if (input === 'Random Love Poem') {
       updateStyleSelector(randomLove)
     }
-    console.log(styleSelector)
   }
 
   ///html2canvas
   function canvasMaker() {
     html2canvas(document.getElementById('unblur'), { allowTaint: true, useCORS: true }).then(function (canvas) {
-      var link = document.createElement("a");
+      const link = document.createElement("a");
       document.body.appendChild(link);
       link.download = "code_poem.png";
       link.href = canvas.toDataURL("image/png");
@@ -216,7 +203,7 @@ const App = () => {
 
           </div>
           <div className='buttonBox'>
-            <button onClick={() => console.log(randomPoemGen())}>Create Poem</button>
+            <button onClick={() => randomPoemGen()}>Create Poem</button>
           </div>
           <div className='buttonBox' >
             <input type='text' placeholder='Choose background e.g. lilies' onKeyUp={(event) => updateSearch(event.target.value)} />
