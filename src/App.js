@@ -121,6 +121,13 @@ const App = () => {
       if (randomLine.length > 20) {
         poemArray.push(randomLine)
       } else { index-- }
+      if (index === poetLine - 1) {
+        if (randomLine[randomLine.length - 1] !== '.' || randomLine[randomLine.length - 1] !== '!' || randomLine[randomLine.length - 1] !== '?') {
+          randomLine + '.'
+        } else if (randomLine[randomLine.length - 1] === ',') {
+          randomLine[randomLine.length - 1] === '.'
+        }
+      }
 
     }
     console.log(poemArray)
