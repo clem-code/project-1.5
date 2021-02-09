@@ -22,7 +22,6 @@ Technologies Used:
 * Google Fonts
 * APIs
 * Insomnia
-* Cors-Anywhere
 * HTML2Canvas
 
 
@@ -32,8 +31,7 @@ Code_Poetry is a simple, one-page app inspired by a simple need: people want coo
 
 Use the deployed version here:
 
-[https://clem-code.github.io/project-1.5/
-]()
+<a href='https://clem-code.github.io/project-1.5/' target='_blank' >https://clem-code.github.io/project-1.5/<a>
 
 
 <img align = 'center' src='image.png' >
@@ -41,7 +39,7 @@ Use the deployed version here:
 
 ## The Concept
 
-I only had the weekend for the project and I had only been learning about React and APIs for a week at this point so the design was necessarily lean and pared back. The mandate was to use an API of our choice and build the app using React. Everything else was up to us to decide. Early on, I decided I wanted to do something with the Poetry DB API. I've always been interested in the idea of automatic writing: the idea that literature can be intuitive, experimental, and spontaneous. I wanted to use code to make something like a digital version of automatic writing. The idea was to allow the user to choose a category of poetry and a length of poem and then use a little code to access the Poetry DB API and then randomly 'write' a new poem. For instance, if the user chose 'Emily Dickinson' and '10' then everytime they pressed the button, a randomly generated 10 line Emily Dickinson poem would appear on screen. 
+I had the weekend for the project and I had only been learning about React and APIs for a week at this point so the design was necessarily lean and pared back. The mandate was to use an API of our choice and build the app using React. Everything else was up to us to. Early on, I decided I wanted to do something with the Poetry DB API. I've always been interested in the concept of automatic writing: the idea that literature can be intuitive, experimental, and spontaneous. I wanted to use code to make something like a digital version of automatic writing. The idea was to allow the user to choose a category of poetry and a length of poem and then use a little code to access the Poetry DB API and then randomly 'write' a new poem. For instance, if the user chose 'Emily Dickinson' and '10' then everytime they pressed the button, a randomly generated ten line Emily Dickinson poem would appear on-screen. 
 
 I wanted to combine this random poetry with some randomized stylings. First off, I added a simple piece of code, also tied to a button, that would randomize the font colour and the background colour of the poetry. But I wanted to do more. So I added another API: the Victoria and Albert Museum API. The V&A has a vast and eclectic collection. I added a simple search function that would pass through search terms into the API and then generate a background accordingly. For instance, if a user types in 'lilies', then a piece from the V&A which has the keyword 'lilies' will appear as the background art!  
 
@@ -49,7 +47,7 @@ I wanted to combine this random poetry with some randomized stylings. First off,
 
 The extent of the app is a container which constitutes the 'canvas' -- basically a div which holds the lines of poetry and whose background is randomly generated depending on what the user searches for. Beneath the canvas are a series of buttons which guide the user to building their own poem and choosing the background design. At the very end is a 'Download Card' button which lets them download their custom-made card.
 
-The APIs: I was new to using APIs and this was the first time I was independently trying to incorporate API data into a visual interface. Overall, I didn't encounter too many difficulties. The V&A and the Poetry DB APIs are pretty easy to use. Neither require keys and both had in-depth and easily-comprehensible documentation. I used Insomnia to get comfortable with how they organized their data, all of which was fairly straightforward. I encountered some CORS issues with the V&A API so I used CORS-Anywhere to get around that. 
+The APIs: I was new to using APIs and this was the first time I was independently trying to incorporate API data into a visual interface. Overall, I didn't encounter too many difficulties. The V&A and the Poetry DB APIs are pretty easy to use. Neither require keys and both had in-depth and easily-comprehensible documentation. I used Insomnia to get comfortable with how they organized their data, all of which was fairly straightforward. 
 
 *An example of a fetch from the Poetry DB API*
 
