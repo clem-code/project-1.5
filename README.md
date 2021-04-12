@@ -120,7 +120,10 @@ Getting access to additional APIs to generate the background art.
 
 Mobile compatibility.
 
+### _Key Takeaways_
 
+This project was the first time I was working on an app without any support. It was really scary at first, but it also made me get used to falling back on my own inventiveness when it came to problem-solving. This was particularly the case with getting HTML2Canvas to work which was a real challenge!
+On the technical side, it was still very early days for me in terms of React. Getting some time in with it and learning how to use state and hooks was really valuable.
 
 
 
